@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/auth-app/static/css/main.435d5fe5.chunk.css",
+    "main.js": "/auth-app/static/js/main.3a4cbc8d.chunk.js",
+    "main.js.map": "/auth-app/static/js/main.3a4cbc8d.chunk.js.map",
+    "runtime~main.js": "/auth-app/static/js/runtime~main.6afa407c.js",
+    "runtime~main.js.map": "/auth-app/static/js/runtime~main.6afa407c.js.map",
+    "static/js/2.2f63d9d7.chunk.js": "/auth-app/static/js/2.2f63d9d7.chunk.js",
+    "static/js/2.2f63d9d7.chunk.js.map": "/auth-app/static/js/2.2f63d9d7.chunk.js.map",
+    "static/js/3.730e5367.chunk.js": "/auth-app/static/js/3.730e5367.chunk.js",
+    "static/js/3.730e5367.chunk.js.map": "/auth-app/static/js/3.730e5367.chunk.js.map",
+    "index.html": "/auth-app/index.html",
+    "precache-manifest.f413983ce64544df5b62a6b26192a513.js": "/auth-app/precache-manifest.f413983ce64544df5b62a6b26192a513.js",
+    "service-worker.js": "/auth-app/service-worker.js",
+    "static/css/main.435d5fe5.chunk.css.map": "/auth-app/static/css/main.435d5fe5.chunk.css.map",
+    "static/media/logo.svg": "/auth-app/static/media/logo.06e73328.svg"
+  }
+}
