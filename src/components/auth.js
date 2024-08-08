@@ -1,50 +1,50 @@
-import React, {useState, useEffect} from "react";
-import {auth, googleProvider, appleProvider} from "../firebase";
+// src/components/Auth.js
+import React, { useState, useEffect } from 'react';
+import { auth, googleProvider, appleProvider } from '../firebase';
+import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 
 const Auth = () => {
+  const [user, setUser] = useState(null);
 
-    const [user, setUser] = useState(null);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
-    useEffect(()=> {
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider);
+  };
 
-        const unsubscribe  = auth.onAuthStateChanged((user) => {
+  const signInWithApple = () => {
+    signInWithPopup(auth, appleProvider);
+  };
 
-            if (user){
-                setUser(user);
-            }else{
-                setUser(null);
-            }
-        });
-        return () => unsubscribe();
-    },[]);
+  const handleSignOut = () => {
+    signOut(auth);
+  };
 
-    const signInWithGoogle = () => {
-        auth.signInWithPopup(googleProvider);
-    };
-    const signInWithApple = () => {
-        auth.signInWithPopup(appleProvider);
-    };
-    const signOut = () => {
-        auth.signOut();
-    };
-
-    return (
+  return (
+    <div>
+      {user ? (
         <div>
-          {user ? (
-            <div>
-              <p>Sie sind angemeldet.</p>
-              <button onClick={signOut}>Abmelden</button>
-            </div>
-          ) : (
-            <div>
-              <p>Sie sind abgemeldet.</p>
-              <button onClick={signInWithGoogle}>Mit Google anmelden</button>
-              <button onClick={signInWithApple}>Mit Apple anmelden</button>
-            </div>
-          )}
+          <p>Sie sind angemeldet.</p>
+          <button onClick={handleSignOut}>Abmelden</button>
         </div>
-      );
-
+      ) : (
+        <div>
+          <p>Sie sind abgemeldet.</p>
+          <button onClick={signInWithGoogle}>Mit Google anmelden</button>
+          <button onClick={signInWithApple}>Mit Apple anmelden</button>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Auth;
